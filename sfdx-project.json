@@ -1,0 +1,12 @@
+{
+  "packageDirectories": [
+    {
+      "path": "force-app",
+      "default": true
+    }
+  ],
+  "name": "ylgrocery",
+  "namespace": "",
+  "sfdcLoginUrl": "https://resilient-narwhal-j4pkhd-dev-ed.my.salesforce.com/",
+  "sourceApiVersion": "52.0"
+}
