@@ -23,6 +23,24 @@ public with sharing class AccountsOperation {
         Delete toDelete;
     }
 
+    public static Account insertNewAccount(String input) {
+        Account newAcc = new Account(Name=input);
+        List<Account> accList = new List<Account>();
+        accList.add(newAcc);
+        Database.SaveResult[] srList = Database.insert(accList, false);
+        if(srList[0].isSuccess()) {
+            newAcc.Id = srList[0].getId(); 
+            return newAcc;
+        } else {
+            return null;
+        }
+    }
+
+    public static List<Contact> searchForContacts(String lastN, String postC) {
+        List<Contact> foundList = [SELECT Id,Name FROM Contact WHERE LastName = :lastN AND MailingPostalCode = :postC];
+        return foundList;
+    }
+
     
     // Public method
     public void sendMail(String address, String subject, String body) {
@@ -62,3 +80,4 @@ public with sharing class AccountsOperation {
         return sendResult;
     }
 }
+
