@@ -19,7 +19,7 @@ public with sharing class AccountsOperation {
         Upsert(tempAccounts);
     }
     public void deleteMassAccounts() {
-        List<Account> toDelete = [SELECT name FROM Account WHERE name = '%YLGrocery%'];
+        List<Account> toDelete = [SELECT Id FROM Account WHERE name = '%YLGrocery%'];
         Delete toDelete;
     }
 
