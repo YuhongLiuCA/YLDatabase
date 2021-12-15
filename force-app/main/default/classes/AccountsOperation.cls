@@ -41,6 +41,13 @@ public with sharing class AccountsOperation {
         return foundList;
     }
 
+    public class ContactAndLeadSearch {
+        public static List<List< SObject>> searchContactsAndLeads(String input) {
+            List<List <SObject>> searchResult = [FIND :input IN NAME FIELDS RETURNING Contact(FirstName,LastName), Lead(FirstName,LastName) ];
+            return searchResult;
+        }
+    }
+
     
     // Public method
     public void sendMail(String address, String subject, String body) {
